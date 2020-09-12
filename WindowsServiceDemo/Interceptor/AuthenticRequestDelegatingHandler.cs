@@ -16,6 +16,7 @@ namespace WindowsServiceDemo.Interceptor
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             var now = DateTime.Now;
+            //每次向接口发送请求时，会附加上自定义的Header
             request.Headers.Add("time", now.ToString("yyyyMMddHHms"));
             request.Headers.Add("token", "hasaki");
             var result = await base.SendAsync(request, cancellationToken);

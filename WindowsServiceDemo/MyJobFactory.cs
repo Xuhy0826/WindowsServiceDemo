@@ -1,18 +1,15 @@
 ﻿using Quartz.Spi;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Quartz;
 
 namespace WindowsServiceDemo
 {
+    /// <summary>
+    /// Job工厂，从服务容器中取Job
+    /// </summary>
     public class MyJobFactory : IJobFactory
     {
-        /// <summary>
-        /// Job工厂，从服务容器中取Job
-        /// </summary>
         protected readonly IServiceProvider _serviceProvider;
-
         public MyJobFactory(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;

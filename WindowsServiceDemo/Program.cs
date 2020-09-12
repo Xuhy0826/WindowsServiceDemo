@@ -12,11 +12,12 @@ namespace WindowsServiceDemo
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .UseWindowsService()    //按照Windows Service运行
                 .ConfigureServices((hostContext, services) =>
                 {
-                    //注册服务
-                    services.AddMyServices(hostContext.Configuration);
-                    services.AddHostedService<Worker>();
+            //注册服务
+            services.AddMyServices(hostContext.Configuration)
+                            .AddHostedService<Worker>();
                 });
     }
 }
