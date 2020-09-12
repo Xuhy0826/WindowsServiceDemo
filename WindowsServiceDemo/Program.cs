@@ -15,8 +15,8 @@ namespace WindowsServiceDemo
                 .UseWindowsService()    //按照Windows Service运行
                 .ConfigureServices((hostContext, services) =>
                 {
-            //注册服务
-            services.AddMyServices(hostContext.Configuration)
+                    //注册服务
+                    services.AddMyServices(hostContext.Configuration)
                             .AddHostedService<Worker>();
                 });
     }
